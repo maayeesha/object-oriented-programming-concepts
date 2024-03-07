@@ -10,9 +10,12 @@ class AbstractEmployee {
 
 class Employee : AbstractEmployee {
   // private:
-  string Name;
+
   string Company;
   int Age;
+
+protected:
+  string Name;
 
 public:
   // setter
@@ -45,22 +48,42 @@ public:
   void askForPromotion() {
     if (Age > 30) {
       cout << Name << " got promoted" << endl;
-    }
-      else cout << Name << " ,Sorry, no promotion for you" << endl;
-    }
+    } else
+      cout << Name << " ,Sorry, no promotion for you" << endl;
+  }
 };
 
-class Developer: Employee{
- string favouriteProgrammingLanguage;
+class Developer : public Employee {
+public:
+  string FavProgrammingLanguage;
+  Developer(string name, string company, int age, string favProgrammingLanguage)
+      : Employee(name, company, age) {
+    FavProgrammingLanguage = favProgrammingLanguage;
+  };
+  void fixBug() {
+    cout << getName() << " fixed bug using " << FavProgrammingLanguage << endl;
+  }
+};
+
+class Teacher : public Employee {
+public:
+  string Subject;
+  void preparedLesson() {
+    cout << Name << " is preparing " << Subject << " lesson." << endl;
+  }
+  Teacher(string name, string company, int age, string subject)
+      : Employee(name, company, age) {
+    Subject = subject;
+  }
 };
 int main() {
-  Employee employee1 = Employee("Maayeesha", "ABC", 24);
-  // employee1.Introduceyourself();
-  // employee1.Name = "Maayeesha";
-  // employee1.Company = "ABC";
-  // employee1.Age = 24;
-  // employee1.Introduceyourself();
-  Employee employee2 = Employee("Farzana", "XYZ", 35);
+  // Employee employee1 = Employee("Maayeesha", "ABC", 24);
+  //  employee1.Introduceyourself();
+  //  employee1.Name = "Maayeesha";
+  //  employee1.Company = "ABC";
+  //  employee1.Age = 24;
+  //  employee1.Introduceyourself();
+  // Employee employee2 = Employee("Farzana", "XYZ", 35);
   // employee2.Introduceyourself();
 
   // Encapsulation
@@ -70,6 +93,14 @@ int main() {
   //       << endl;
 
   // Abstraction
-  //employee1.askForPromotion();
-  employee2.askForPromotion();
+  // employee1.askForPromotion();
+  // employee2.askForPromotion();
+
+  // inheritance
+  Developer d = Developer("Maayeesha", "ABC", 24, "C++");
+  d.fixBug();
+  d.askForPromotion();
+  Teacher t = Teacher("Sherlock", "Cool School", 39, "History");
+  t.preparedLesson();
+  t.askForPromotion();
 }
