@@ -1,4 +1,4 @@
-## OOP Concepts covered: 
+# OOP Concepts covered: 
 - Class
 - Object
 - 4 principles
@@ -7,4 +7,4 @@
    - Inheritance
    - Polymorphism
 
-# Find the reference code in the main.cpp file
+### Find the reference code in the main.cpp file
