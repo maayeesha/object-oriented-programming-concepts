@@ -1,4 +1,4 @@
-*** OOP Concepts covered:
+### OOP Concepts covered: 
 -Class
 -Object
 -4 principles
