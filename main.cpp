@@ -51,6 +51,11 @@ public:
     } else
       cout << Name << " ,Sorry, no promotion for you" << endl;
   }
+
+  virtual void Work() {
+    cout << Name << " is checking email, task log, performing tasks ... "
+         << endl;
+  }
 };
 
 class Developer : public Employee {
@@ -62,6 +67,10 @@ public:
   };
   void fixBug() {
     cout << getName() << " fixed bug using " << FavProgrammingLanguage << endl;
+  }
+
+  void Work() {
+    cout << Name << " is writing " << FavProgrammingLanguage << "code" << endl;
   }
 };
 
@@ -75,6 +84,8 @@ public:
       : Employee(name, company, age) {
     Subject = subject;
   }
+
+  void Work() { cout << Name << " is teaching " << Subject << endl; }
 };
 int main() {
   // Employee employee1 = Employee("Maayeesha", "ABC", 24);
@@ -98,9 +109,24 @@ int main() {
 
   // inheritance
   Developer d = Developer("Maayeesha", "ABC", 24, "C++");
-  d.fixBug();
-  d.askForPromotion();
+  // d.fixBug();
+  // d.askForPromotion();
   Teacher t = Teacher("Sherlock", "Cool School", 39, "History");
-  t.preparedLesson();
-  t.askForPromotion();
+  // t.preparedLesson();
+  // t.askForPromotion();
+
+  // Polymorphism
+  d.Work();
+  t.Work();
+
+  Employee *e1 = &d; // an Employee pointer, holding reference to the developer
+  Employee *e2 = &t;
+  e1->Work(); // before using virtual in base class: O/P: Employee *e = &d;
+  // after using virtual void work in base class: O/P:Maayeesha is writing
+  // C++code
+  //  when you add the keyword "virtual", in polymorphism, the same
+  //  named method will be checked first in derived classes, if the
+  //  derived class has the method then it will execute otherwise, the
+  //  method here in the base class will be executed.
+  e2->Work();
 }
