@@ -88,7 +88,6 @@ public:
   void Work() { cout << Name << " is teaching " << Subject << endl; }
 };
 
-/*
 int main() {
   // Employee employee1 = Employee("Maayeesha", "ABC", 24);
   //  employee1.Introduceyourself();
@@ -132,4 +131,3 @@ int main() {
   //  method here in the base class will be executed.
   e2->Work();
 }
-*/

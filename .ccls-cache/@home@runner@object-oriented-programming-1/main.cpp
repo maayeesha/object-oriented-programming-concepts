@@ -132,4 +132,3 @@ int main() {
   //  method here in the base class will be executed.
   e2->Work();
 }
-*/
